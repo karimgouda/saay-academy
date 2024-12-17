@@ -1,0 +1,23 @@
+$s: right;
+$e: left;
+
+$p: -1;
+
+html {
+  direction: rtl;
+}
+
+[type=tel],
+[type=email],
+[type=number] {
+    direction: rtl;
+}
+
+*:not(i) {
+  font-family: 'Tajawal', sans-serif !important;
+}
+
+[class*="im-"]{
+  display: inline-block;
+  transform: scaleX($p);
+}

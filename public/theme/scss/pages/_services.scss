@@ -1,0 +1,201 @@
+/*-----------------------
+  services
+------------------------*/
+//section-taps--services
+.section-taps--services {
+  &__btn-head {
+    @include head(32px,$dark-color);
+    margin-bottom: 40px;
+  }
+  &--tab-btn {
+    border-bottom-color:$light ;
+    padding: 10px;
+    &:has(+ .active) {
+      border-bottom-color:transparent ;
+    }
+
+  }
+  &__help-card {
+    margin-top: 50px;
+    &--list {
+      margin-top: 0;
+    }
+    &__head {
+      h2 {
+        @include head(18px ,$main-color);
+        font-family: $font-sub;
+      }
+    }
+    a {
+      color: $p-color;
+    }
+  }
+  &__charts {
+    margin-top: 30px;
+    &__content {
+      margin-bottom: 20px;
+      &__head {
+        @include head(18px,$dark-color);
+        margin-bottom: 20px;
+      }
+    }
+  }
+}
+@include responsive(max,575px) {
+  .section-taps--services {
+    &__btn-head {
+      font-size: 27px;
+      margin-bottom: 30px;
+    }
+    &__charts {
+      > .row {
+        flex-direction: column
+      }
+    }
+  }
+}
+// solutions-services section
+.solutions-services {
+  &__content {
+    &__head {
+      @include head(30px,$dark-color);
+    }
+    &__text {
+      margin: 20px 0;
+    }
+  }
+  &__carousel__card {
+    border: 1px solid $light !important;
+    margin: 5px;
+    min-height: 255px;
+    i {
+      font-size: 45px;
+      color: $main-color;
+      text-align: left;
+    }
+    &__head{
+      @include head(25px,$dark-color);
+      margin:16px 0;
+    }
+    &__text {
+      font-size: 13px;
+      line-height: 24px;
+    }
+  }
+}
+@include responsive(max,575px) {
+  .solutions-services {
+    &__content {
+      &__head {
+        font-size: 27px;
+      }
+    }
+    &__carousel__card {
+      padding: 20px;
+      &__head{
+        font-size: 22px;
+        margin:5px 0 10px;
+      }
+    }
+  }
+}
+// accordions-services section 
+.accordions-services {
+  &__content {
+    margin-bottom: 30px;
+    &__head {
+      @include head(30px,$dark-color)
+    }
+  }
+  .accordion {
+    --bs-accordion-border-width:0;
+    --bs-accordion-bg:transparent;
+  }
+  &__accordions {
+    .accordion-button {
+      padding: {
+        top:10px;
+        bottom:10px;
+        #{$s}:60px ;
+      };
+      background-color: transparent;
+      box-shadow: none ;
+      @include head(15px,$dark-color);
+
+      &::after {
+        transition: $main-transition;
+        transform: rotate(0);
+        position: absolute;
+        #{$s}: 30px;
+        background: $main-color;
+        width: 23px;
+        height: 1px;
+      }
+      &::before {
+        content: '\F285';
+        @if $s == right {
+          content: '\F284';
+        }
+        font-family: "Bootstrap-icons";
+        color: $white-color;
+        font-size: 10px;
+        position: absolute;
+        #{$s}: 10px;
+        width: 25px;
+        height: 25px;
+        line-height: 25px;
+        transform: rotate(90deg);
+        @if $s == right {
+          transform: rotate(-90deg);
+        }
+        text-align: center;
+        background-color: $main-color;
+        border-radius: 2px;
+      }
+      &:hover::after {
+        width: 15px;
+      }
+      &.collapsed::before{
+        transform: rotate(0deg);
+      }
+    }
+  }
+}
+@include responsive(max,575px) {
+  .accordions-services {
+    &__content {
+      margin-bottom: 20px;
+      &__head {
+        font-size: 27px;
+      }
+    }
+  }
+}
+// gallery-services section 
+.gallery-services {
+  &__content {
+    margin-bottom: 30px;
+    &__head {
+      @include head(30px,$dark-color)
+    }
+  }
+  .item {
+    padding: 5px;
+    border: 1px solid $light;
+    border-radius: 4px;
+    img {
+      min-height: 192px;
+      max-height: 192px;
+    }
+  }
+}
+@include responsive(max,575px) {
+  .gallery-services {
+    &__content {
+      margin-bottom: 20px;
+      &__head {
+        font-size: 27px;
+      }
+    }
+  }
+}

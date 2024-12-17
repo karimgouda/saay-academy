@@ -1,0 +1,439 @@
+/*--------------------
+  Home
+----------------------*/
+// hero section
+.hero-section {
+  min-height: 750px;
+  .flexslider {
+    margin-bottom: 20px !important;
+  }
+  &__content {
+    color: $white-color;
+    &__title {
+      @include head(45px,$white-color);
+    white-space: normal;
+      &__text {
+        font-size: 15px;
+      }
+    }
+  }
+  &__popup {
+    @include head(14px,$main-color);
+    font-weight: $fw-medium;
+    @include play(-42px);
+  }
+}
+@keyframes ping {
+  75%,
+  100% {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+}
+@include responsive(max,992px){
+  .hero-section {
+    &__content__title {
+      font-size: 30px;
+    }
+  }
+}
+@include responsive(max,768px){
+  .hero-section {
+    min-height: auto;
+    &__popup {
+      
+      display: block;
+      width: fit-content;
+      margin: {
+        left: auto;
+        right: auto;
+        top: 100px;
+        bottom: 100px
+      };
+    }
+  }
+  .hero-section__content__title {
+      text-align: center;
+      font-size: 30px;
+    }
+  .hero-section__content__text {
+      text-align: center;
+    }
+
+  }
+@include responsive(max,575px) {
+  .hero-section {
+    min-height: 100vh;
+    background-size: cover !important;
+    &__content {
+      margin-top: 60px;
+    }
+  }
+}
+
+//team section 
+.section-team {
+  background: linear-gradient(to top ,$light-main-color 130px ,transparent);
+  .section-over {
+    margin-top: -130px;
+  }
+  .section-team__card {
+    &__img {
+      z-index: 1;
+      position: relative;
+      overflow: hidden;
+      &:hover img {
+        transform: scale(1.2);
+      }
+    }
+    &__content {
+      text-align: center;
+      padding: 30px;
+      &__head {
+        line-height: 29px;
+      @include head(25px,$dark-color);
+      }
+      &__text {
+        font-size: 14px;
+        color: $p-color;
+        line-height: 24px;
+      }
+    }
+  }
+  .icon-box {
+    margin-top: 30px;
+    display: flex;
+    align-items: center;
+    &__icon {
+      color: $main-color;
+      font-size: 40px;
+      padding-#{$e}: 15px;
+      border-#{$e}:1px solid $border-color ;
+      margin: auto 0;
+    }
+    &__content {
+      text-align: $s;
+      padding-#{$s}: 15px;
+      &__head{
+        font-size: 18px;
+        color: $dark-color;
+      }
+      &__text{
+        font-size: 13px;
+        color: $dark-color;
+      }
+    }
+  }
+}
+@include responsive(max,992px) {
+  .section-team {
+    padding-top: 60px !important;
+    .section-over {
+      margin-top: 0;
+    }
+  }
+}
+// our goals section 
+.section-main {
+  &__content{
+    margin-top: 10px;
+    text-align: $s;
+    &__head {
+      h2{
+      @include head(30px,$main-color);
+      }
+    }
+    &__text {
+      margin-top: 25px;
+      color: $p-color;
+    }
+    &__list {
+      margin-top: 30px;
+      padding-#{$s}:35px ;
+      color: $p-color;
+      li {
+        line-height: 200%;
+        position: relative;
+        &::before {
+          content: '+';
+          position: absolute;
+          #{$s}:-30px;
+          color: $main-color;
+          font-weight: $fw-medium;
+          font-size: 18px;
+        }
+        &:hover::before {
+          content: '-';
+        }
+      }
+    }
+    &__count {
+      margin-top: 30px;
+      i {
+        font-size: 50px;
+        color: $main-color;
+      }
+      span {
+        @include head(20px,$white-color);
+      }
+      .section-main__content__text {
+        font-size: 13px;
+      }
+    }
+  }
+  &__img {
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+    width: 100%;
+    box-shadow: 0px 0 2px 0 rgba(0,0,0,0.1), 0 0 0px 0 rgba(0,0,0,0.1), 0 2px 2px 0 rgba(0,0,0,0.18);
+    img{
+      border-radius: 3px;
+    }
+  }
+  &--img {
+    *:not(i) {
+      color:$white-color ;
+    }
+  }
+  
+}
+@include responsive(max,575px) {
+  .section-main {
+    &__content{
+      text-align: $s;
+      &__head {
+        h2{
+          font-size: 27px;
+        }
+      }
+      &__text {
+        margin-top: 0;
+      }
+    }
+  }
+}
+// section scale
+.section-scale {
+  &__card {
+    display: table;
+    text-align: $s;
+    width: 100%;
+    background-color:$white-color;
+    &__icon {
+      display: table-cell;
+      vertical-align: middle;
+      @if $s == left {
+      padding-right: 35px;
+      }
+      i {
+        font-size: 55px;
+        color: $main-color
+      }
+    }
+    &__caption {
+      overflow: hidden;
+      position: relative;
+      &__head {
+        position: relative;
+        #{$e}: 0;
+        top: 0;
+        display: block;
+        transition:all 1s;
+        max-width: 100%;
+        @include head(30px,$dark-color);
+      }
+      span {
+        color: $p-color;
+        position: relative;
+        #{$e}: 0;
+        top: 0;
+        display: block;
+        transition:all 1s;
+        max-width: 100%;
+      }
+      p {
+        color: $p-color;
+        position: absolute;
+        #{$e}: -200%;
+        top: 4px;
+        display: block;
+        max-width: 100%;
+        line-height: 1.5;
+        font-size: 14px;
+        transition: all 1s;
+      }
+    }
+    &:hover span ,
+    &:hover h3 {
+      #{$e}:200%
+    }
+    &:hover p {
+      #{$e}:0
+    }
+  }
+}
+@include responsive(max,575px) {
+  .section-scale {
+    &__card {
+      &__icon {
+        padding-#{$e}: 25px;
+        i {
+          font-size: 45px;
+        }
+      }
+      &__caption {
+        &__head {
+          font-size: 27px;
+        }
+      }
+    }
+  }
+}
+//section taps 
+.section-taps {
+  &__tab-btn {
+    @include head(initial,$p-color !important);
+    text-align: $s;
+    padding: 20px;
+    border: 1px solid transparent;
+    background: none !important;
+    border-radius: 0 !important;
+    &.active {
+      border-color: $main-color ;
+      position: relative;
+      &::before,
+      &::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        #{$e}:-30px;
+        #{$s}:auto;
+        margin-top: -15px;
+        display: block;
+        border: 15px solid $white-color;
+        border-top-color: rgba(0, 0, 0, 0);
+        border-bottom-color: rgba(0, 0, 0, 0);
+        border-#{$e}-color: rgba(0, 0, 0, 0);
+        z-index: 9;
+      }
+      &::before {
+        #{$e}: -31px;
+        border: 15px solid $main-color;
+        border-top-color: rgba(0, 0, 0, 0);
+        border-bottom-color: rgba(0, 0, 0, 0);
+        border-#{$e}-color: rgba(0, 0, 0, 0);
+      }
+    }
+  }
+  &__content {
+    &__head {
+      @include head(30px,$dark-color);
+    }
+    &__text {
+      color: $p-color;
+    }
+    &__progress-bars {
+      margin-top: 50px;
+    }
+    &__popup {
+      display: block;
+      img {
+        position: relative;
+        z-index: -1;
+      }
+    }
+    &__popup--center {
+      @include play (-52px);
+      position: absolute;
+      top: 50%;
+      #{$s}: 40%;
+    }
+  }
+}
+@include responsive (max,992px) {
+  .section-taps {
+    &__tab-btn {
+      text-align: center;
+      &:not(.active) {
+      border: 0;
+      }
+      &.active {
+        background-color: $light-main-color !important;
+        &::before,
+        &::after {
+          display: none;
+        }
+      }
+    }
+  }
+  .nav {
+    flex-direction: row;
+    flex-wrap: nowrap;
+    margin-bottom: 30px;
+    .nav-link {
+      width: 100%;
+    }
+  }
+}
+@include responsive (max,575px) {
+  .section-taps {
+    &__tab-btn {
+      padding: 10px;
+    }
+    &__content {
+      &__count {
+        text-align: center;
+      }
+      &__head {
+        font-size: 27px;
+      }
+    }
+  }
+  .nav {
+    flex-wrap: wrap;
+  }
+}
+//our team section 
+.our-team {
+  &__card {
+    position: relative;
+    padding: 0;
+    margin: 5px {
+      bottom: 0;
+    };
+    &__slidUp {
+      text-align: center;
+      position: absolute;
+      width: 100%;
+      bottom: 0;
+      padding: 30px 10px;
+      height: 100px;
+      background-color: $white-color;
+      transition: all .7s;
+      h2 {
+        @include head(17px,$dark-color);
+      }
+      h4 {
+        @include head (13px ,$main-color);
+      }
+      &__person-social {
+        margin: 40px 0;
+        i {
+          padding: 15px;
+          font-size: 17px;
+          width: 47px;
+          color: $main-color;
+        }
+      }
+      p {
+        color: $p-color;
+        font-size: 13px;
+        line-height: 24px;
+      }
+    }
+    &:hover .our-team__card__slidUp{
+      height: 250px;
+    }
+  }
+}

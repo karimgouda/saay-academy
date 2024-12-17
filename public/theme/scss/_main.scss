@@ -1,0 +1,24 @@
+// helpers
+@import 'helpers/variables' ;
+@import './helpers/mixins' ;
+// base
+@import './base/typography';
+@import './base/base';
+@import './base/utilities';
+@import './base/custom';
+
+// components
+@import 'components/buttons';
+@import 'components/loader';
+// layout
+@import 'layout/header';
+@import  'layout/navbar';
+@import 'layout/footer';
+// page 
+@import  'pages/home';
+@import  'pages/services';
+@import  'pages/about';
+@import  'pages/contact';
+@import './pages/terms';
+
+

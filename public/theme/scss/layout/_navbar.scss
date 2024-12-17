@@ -1,0 +1,88 @@
+/*----------------------
+navbar
+-----------------------*/
+.navbar {
+  position: absolute;
+  left: 0;
+  right: 0;
+  font-family: $font-links;
+  .container {
+    padding: 0 20px;
+  }
+  .navbar-brand {
+    padding: 0;
+    margin: 5px;
+    margin-inline-end:20px ;
+    .logo {
+      height: 70px;
+    }
+  }
+  .navbar-nav {
+    margin-inline-end: auto;
+  }
+  .nav-link {
+    font-family: $font-links;
+    position: relative;
+    color: $white-color;
+    text-align: center;
+    font-size: 14px;
+    text-transform: capitalize;
+    line-height: 11px;
+    min-width: 80px;
+    padding: 20px 10px;
+    z-index: 1;
+    &::before {
+      content: '';
+      position: absolute;
+      z-index: -1;
+      inset: 0;
+      background-color: transparent;
+      transition:all .4s;
+    }
+    &:hover::before {
+      background:linear-gradient(to top ,$main-color,$sub-color);
+    }
+    &:hover {
+      color: $white-color ;
+    }
+  } 
+  .nav-lang {
+    border: 0;
+    @include head (14px,$white-color);
+    font-family: $font-links;
+    font-weight: $fw-medium;
+    margin-#{$e}:20px ;
+  }
+}
+@include responsive("max",991px){
+  .navbar-collapse  {
+    padding: 20px;
+    background-color:$white-color;
+    z-index: 2;
+    .nav-link {
+      text-align: $s;
+      color: $dark-color;
+    }
+    .nav-lang {
+      color: $dark-color;
+    }
+  }
+  .navbar  {
+    .navbar-toggler {
+      .navbar-toggler-icon {
+        width: 2rem;
+        height: 2rem;
+      }
+    }
+    
+  }
+  .sticky {
+    .navbar-toggler {
+      .navbar-toggler-icon {
+      filter: invert(52%) sepia(77%) saturate(416%) hue-rotate(132deg) brightness(99%) contrast(96%);
+      }
+    }
+  }
+}
+
+// filter: invert(0%) sepia(100%) saturate(7500%) hue-rotate(347deg) brightness(89%) contrast(111%);

@@ -1,0 +1,129 @@
+/*-------------------
+  utilities
+--------------------*/ 
+//hero half section
+.half-hero {
+  display: flex;
+  height: 400px;
+  align-items: center;
+  &.contact {
+    height: 470px;
+    align-items: end;
+  }
+  &__content {
+    margin-top: 40px;
+    &__head {
+      @include head(45px,$white-color)
+    }
+    &__text {
+    max-width: 500px;
+    color: $white-color;
+    }
+  }
+}
+@include responsive(max,992px){
+.half-hero {
+  &__content {
+    &__head {
+      font-size: 35px;
+    }
+  }
+}
+}
+@include responsive(max,575px){
+.half-hero {
+  height: 300px;
+  &__content {
+    margin-top: 30px;
+    &__head {
+      font-size: 35px;
+    }
+  }
+}
+}
+.section-py{
+  padding: 80px 0;
+}
+.py-50 {
+  padding: {
+    top:50px !important;
+    bottom: 50px !important;
+  };
+}
+.border-bottom {
+  border-bottom: 1px solid $light ;
+}
+@include responsive (max,992px) {
+  .section-py{
+    padding: 50px 0;
+  }
+}
+.section-bg {
+  background: $light-main-color;
+}
+.main-color {
+  color: $main-color !important;
+}
+.border-right {
+  border-#{$e}: 1px solid $light ;
+}
+.px-25{
+  padding: 0 25px;
+}
+@include responsive(max,992px) {
+  .px-25{
+    padding: 0 15px;
+  }
+}
+.h-125 {
+  height: 125px;
+}
+.h-350 {
+  height: 375px !important;
+}
+@include responsive(max,992px) {
+  .h-350 {
+    height: auto !important;
+  }
+}
+@include responsive(max,768px) {
+  .h-125 {
+    height: auto;
+  }
+}
+.scale-up:hover {
+  transform: translate3d(0, -5px, 0)
+}
+.img-scale:hover {
+  transform: scale(1.2);
+}
+.overlay-hover {
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
+  &::before {
+    transition: $main-transition;
+    @include overlay(#000,0,-1);
+  }
+  &:hover::before {
+    @include overlay(#000,.2,1);
+  }
+}
+.custom-hr {
+  border: 0;
+  display: block;
+  height: 190px;
+}
+// @include responsive(max,768px) {
+//   .custom-hr {
+//     height: 50px;
+//   }
+// }
+.custom-hr--mine {
+  height: 30px;
+}
+@include responsive(max,768px) {
+  .custom-hr--mine {
+    height: 10px;
+  }
+}

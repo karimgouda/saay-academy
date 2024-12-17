@@ -1,0 +1,138 @@
+/*---------------------
+  footer
+----------------------*/ 
+.footer {
+  border-top: 1px solid $light;
+  &__logo{
+    display: block;
+    .img-fluid {
+      width: 100%;
+      object-fit: contain;
+      height: 80px;
+    }
+  }
+  p {
+    font-size: 13px;
+    line-height: 24px;
+    padding:20px 0 40px ;
+  }
+  &__links {
+    h3 {
+      @include head(18px,$dark-color)
+    }
+    &__list {
+      padding: 0;
+      margin-top: 35px;
+      border-#{$s}: 1px solid $light;
+      a {
+        text-transform: uppercase;
+        display: block;
+        position: relative;
+        padding: {
+          top:5px;
+          bottom:5px;
+          #{$s}:30px;
+        };
+        line-height: 17px;
+        color: $p-color;
+        transition: color .5s;
+        &:hover {
+          color: $main-color;
+        }
+        font: {
+          size: 13px;
+          family:$font-links; 
+          weight:$fw-light;
+        };
+        &::before {
+          content: '';
+          position: absolute;
+          width: 20px;
+          height: 1px;
+          #{$s}: 0;
+          top: 13px;
+          background-color: $light;
+        }
+      }
+    }
+  }
+  &__card {
+    width: 100%;
+    h3 {
+      @include head(18px,$dark-color)
+    }
+    &__list {
+      padding: 0;
+      margin: {
+        #{$s}:10px;
+        top:30px;
+      }
+      li {
+        position: relative;
+        font-size: 12px;
+        color: $p-color;
+        white-space: nowrap;
+        line-height: 32px;
+        i {
+          margin-#{$e}:5px;
+          font-size: 15px;
+          color: $main-color;
+        }
+      }
+    }
+  }
+  &__payment {
+    max-height: 30px;
+    text-align: center;
+    img {
+      width: auto;
+    }
+  }
+  &.section-py {
+    padding: 40px 0;
+  }
+}
+.copyright {
+  padding: 20px 0;
+  border-top: 1px solid $light;
+  p {
+    @if $s == right {
+      direction: ltr;
+      text-align: end
+    }
+    @include head(15px, $p-color);
+    font-weight:$fw-medium;
+    a {
+      color: $main-color;
+    }
+  }
+  &__links {
+    width: 100%;
+    margin-bottom: 0;
+    list-style: none;
+    display: flex;
+    justify-content: end;
+    .nav-link {
+      padding: 10px;
+      transition: color .4s;
+      @include head(15px ,$p-color);
+      text-transform: capitalize;
+      font-weight: $fw-medium;
+      &:hover {
+        color: $main-color;
+      }
+      
+    }
+  }
+}
+@include responsive (max,575px) {
+  .copyright {
+    p {
+      text-align: center;
+      margin-bottom: 10px;
+    }
+    &__links {
+      justify-content: center;
+    }
+  }
+}

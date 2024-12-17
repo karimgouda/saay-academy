@@ -1,0 +1,75 @@
+/*-------------------------
+  contact
+-------------------------*/ 
+.form {
+  &__card {
+    padding: 30px;
+
+    &__list {
+      margin-bottom: 30px;
+      li{
+        font-size: 16px;
+        line-height: 34px;
+        margin: 5px 0;
+        i {
+          color: $main-color;
+          font-size: 20px;
+          margin-inline-end:10px ;
+          vertical-align: middle;
+        }
+        b {
+          @include head(inherit,$dark-color);
+        }
+        span,
+        a {
+          color: $p-color;
+          padding: 0 5px;
+        }
+        a:not(:first-of-type) {
+          border-#{$s}: 1px solid $light;
+        }
+        a[href*="mailto:"]:not(:first-of-type) {
+          border: 0;
+          border-left: 1px solid $light;
+        }
+      }
+    }
+  }
+  &__head {
+    @include head(30px,$dark-color);
+  }
+  &__text {
+    color: $p-color;
+  }
+  &__body {
+    margin-top: 30px;
+    .form-label {
+      text-transform: capitalize;
+      color: $p-color;
+      margin-bottom: 0;
+    }
+    [id*="form-"] {
+      background-color: transparent;
+      border: none;
+      border-bottom:1px solid $light ;
+      color: $p-color;
+      border-radius: 0;
+      box-shadow: none;
+      resize: none;
+      margin-bottom: 20px;
+      &:focus {
+        border-color: $main-color;
+      }
+    }
+  }
+}
+@include responsive(max,992px) {
+  .form {
+    &__head {
+      font-size: 27px;
+    }
+    &__card {
+      margin-top: 30px;
+    }
+  }
+}

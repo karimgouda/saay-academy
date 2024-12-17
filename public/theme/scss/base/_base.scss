@@ -1,0 +1,28 @@
+*:not(i) {
+    font: {
+      family: $font-main;
+      size:15px;
+    };
+    &::-webkit-scrollbar {
+      width: 4px;
+    }
+  
+    /* Track */
+    &::-webkit-scrollbar-track {
+      background: #f1f1f1;
+    }
+  
+    /* Handle */
+    &::-webkit-scrollbar-thumb {
+      background: $main-color;
+    }
+  
+    /* Handle on hover */
+    &::-webkit-scrollbar-thumb:hover {
+      background: #555;
+    }
+  }
+  html {
+    scroll-behavior:initial !important;
+  }
+

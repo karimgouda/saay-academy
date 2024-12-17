@@ -1,0 +1,13 @@
+$s: left;
+$e: right;
+
+$p: 1;
+
+body {
+  direction: ltr;
+}
+
+[class*="im-"]{
+  display: inline-block;
+  transform: scaleX($p);
+}

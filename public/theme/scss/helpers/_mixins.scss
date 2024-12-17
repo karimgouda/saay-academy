@@ -1,0 +1,68 @@
+//responsive media query 
+@mixin responsive($type,$size) {
+    @media (#{$type}-width: $size) {
+      @content;
+    }
+  }
+//made circle
+@mixin circle ($width) {
+    width: $width;
+    height: $width;
+    border-radius: 50%;
+  }
+//made overlay 
+@mixin overlay($color,$opacity,$layer) {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-color: $color;
+    opacity: $opacity;
+    z-index: $layer;
+  }
+//text head
+@mixin head($size,$color) {
+    text-transform: uppercase;
+    color: $color;
+    white-space: nowrap;
+    font: {
+      size:$size;
+      family:$font-sub;
+      weight:$fw-semi-bold;
+    }
+  }
+//animation bing
+@mixin play($arg) {
+    position: relative;
+    z-index: 1;
+    &::before {
+      content: '';
+      position: absolute;
+      margin-#{$s}: 34px;
+      top: 50%;
+      transform: translateY(-50%);
+      #{$s}: 100%;
+      border: {
+        style:solid;
+        color:transparent;
+      }
+      @if $s == left {
+        border-width:20px 0 20px 34.6px;
+      }
+      @else {
+        border-width:20px 34.6px 20px 0;
+      }
+    border-#{$s}-color:$white-color ;
+    }
+    &::after {
+      content: '';
+      @include circle(100px);
+      z-index: -1;
+      position: absolute;
+      background: $white-color;
+      top: $arg;
+      right: -80px;
+      right: auto;
+      opacity: .5;
+      animation: ping .8s ease-in-out infinite both;
+    }
+  }
