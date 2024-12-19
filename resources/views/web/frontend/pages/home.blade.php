@@ -11,8 +11,8 @@
             <div class="col-12">
                 <nav class="main-nav">
                     <!-- ***** Logo Start ***** -->
-                    <a href="#" class="logo">
-                        <img src="{{asset('frontend/assets/images/logo.jpeg')}}" height="80" width="60" />
+                    <a href="#" class="logo m-0">
+                        <img src="{{asset('frontend/assets/images/logo.jpeg')}}" height="80" width="60" class="" />
                     </a>
                     <!-- ***** Logo End ***** -->
                     <!-- ***** Menu Start ***** -->

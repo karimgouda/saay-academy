@@ -14,7 +14,7 @@
         </div>
         <div class="row">
             <div class="col-lg-12">
-                <p class="copyright">Copyright &copy; 2020 Softy Pinko Company - Design: TemplateMo</p>
+                <p class="copyright">Copyright &copy; 2024 <a href="https://klay-team.online/">Klay Team</a></p>
             </div>
         </div>
     </div>
