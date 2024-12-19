@@ -5,5 +5,10 @@
 
 <link rel="stylesheet" type="text/css" href="{{asset('frontend')}}/assets/css/font-awesome.css">
 
+@if(app()->getLocale() == 'ar')
+<link rel="stylesheet" href="{{asset('frontend')}}/assets/css/rtl-style.css">
+@else
 <link rel="stylesheet" href="{{asset('frontend')}}/assets/css/templatemo-softy-pinko.css">
+@endif
+
 @stack('head-links')

@@ -19,11 +19,20 @@
                     <ul class="nav mt-0" style="margin-top: 0 !important;">
                         <li><a href="#welcome" class="active">Home</a></li>
                         <li><a href="#features">About</a></li>
-                        <li><a href="#work-process">Work Process</a></li>
                         <li><a href="#testimonials">Testimonials</a></li>
                         <li><a href="#pricing-plans">Pricing Tables</a></li>
                         <li><a href="#blog">Blog Entries</a></li>
                         <li><a href="#contact-us">Contact Us</a></li>
+                        <li>
+                            @php
+                            $lang = app()->getLocale() === 'en' ? 'ar' : 'en';
+                            @endphp
+                            <a href="{{ LaravelLocalization::getLocalizedURL($lang) }}">
+                                <img width="37" height="37"
+                                    src="{{ $lang === 'en' ? asset('frontend/assets/images/en.webp') : asset('frontend/assets/images/ar.webp')}}"
+                                    alt="en.svg" />
+                            </a>
+                        </li>
                     </ul>
                     <a class='menu-trigger'>
                         <span>Menu</span>
@@ -42,8 +51,8 @@
     <!-- ***** Header Text Start ***** -->
     <div class="header-text">
         <div class="container">
-            <div class="row">
-                <div class="offset-xl-3 col-xl-6 offset-lg-2 col-lg-8 col-md-12 col-sm-12">
+            <div class="">
+                <div class="m-auto col-xl-6 text-center col-lg-8 col-md-12 col-sm-12">
                     <h1>We provide the best <strong>strategy</strong><br>to grow up your <strong>business</strong></h1>
                     <p>Softy Pinko is a professional Bootstrap 4.0 theme designed by Template Mo
                         for your company at absolutely free of charge</p>
@@ -234,7 +243,7 @@
                     <h2 class="section-title">What do they say?</h2>
                 </div>
             </div>
-            <div class="offset-lg-3 col-lg-6">
+            <div class=" col-lg-6 m-auto">
                 <div class="center-text">
                     <p>Donec tempus, sem non rutrum imperdiet, lectus orci fringilla nulla, at accumsan elit eros a
                         turpis. Ut sagittis lectus libero.</p>
@@ -315,7 +324,7 @@
                     <h2 class="section-title">Pricing Plans</h2>
                 </div>
             </div>
-            <div class="offset-lg-3 col-lg-6">
+            <div class="m-auto col-lg-6">
                 <div class="center-text">
                     <p>Donec vulputate urna sed rutrum venenatis. Cras consequat magna quis arcu elementum, quis congue
                         risus volutpat.</p>
@@ -458,7 +467,7 @@
                     <h2 class="section-title">Blog Entries</h2>
                 </div>
             </div>
-            <div class="offset-lg-3 col-lg-6">
+            <div class="m-auto col-lg-6">
                 <div class="center-text">
                     <p>Integer molestie aliquam gravida. Nullam nec arcu finibus, imperdiet nulla vitae, placerat nibh.
                         Cras maximus venenatis molestie.</p>
@@ -534,7 +543,7 @@
                     <h2 class="section-title">Talk To Us</h2>
                 </div>
             </div>
-            <div class="offset-lg-3 col-lg-6">
+            <div class="m-auto col-lg-6">
                 <div class="center-text">
                     <p>Maecenas pellentesque ante faucibus lectus vulputate sollicitudin. Cras feugiat hendrerit semper.
                     </p>
