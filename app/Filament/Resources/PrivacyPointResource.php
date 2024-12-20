@@ -29,6 +29,8 @@ class PrivacyPointResource extends Resource
     protected static ?string $navigationGroup = 'Privacies and Terms';
 
     protected static ?int $navigationSort = 2;
+    protected static bool $shouldRegisterNavigation = false;
+
 
     public static function form(Form $form): Form
     {
@@ -67,14 +69,14 @@ class PrivacyPointResource extends Resource
                 Tables\Actions\DeleteBulkAction::make(),
             ]);
     }
-    
+
     public static function getRelations(): array
     {
         return [
             //
         ];
     }
-    
+
     public static function getPages(): array
     {
         return [
@@ -82,5 +84,5 @@ class PrivacyPointResource extends Resource
             'create' => Pages\CreatePrivacyPoint::route('/create'),
             'edit' => Pages\EditPrivacyPoint::route('/{record}/edit'),
         ];
-    }    
+    }
 }

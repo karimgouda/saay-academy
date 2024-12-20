@@ -21,7 +21,7 @@ use Filament\Resources\Concerns\Translatable;
 class ServicesGalleryResource extends Resource
 {
     use Translatable;
-    
+
     protected static ?string $model = ServicesGallery::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-server';
@@ -29,6 +29,8 @@ class ServicesGalleryResource extends Resource
     protected static ?string $navigationGroup = 'Services Page';
 
     protected static ?int $navigationSort = 4;
+    protected static bool $shouldRegisterNavigation = false;
+
 
     public static function form(Form $form): Form
     {
@@ -63,14 +65,14 @@ class ServicesGalleryResource extends Resource
                 Tables\Actions\DeleteBulkAction::make(),
             ]);
     }
-    
+
     public static function getRelations(): array
     {
         return [
             //
         ];
     }
-    
+
     public static function getPages(): array
     {
         return [
@@ -78,5 +80,5 @@ class ServicesGalleryResource extends Resource
             'create' => Pages\CreateServicesGallery::route('/create'),
             'edit' => Pages\EditServicesGallery::route('/{record}/edit'),
         ];
-    }    
+    }
 }

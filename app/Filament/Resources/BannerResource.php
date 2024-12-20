@@ -30,6 +30,8 @@ class BannerResource extends Resource
     protected static ?string $navigationIcon = 'heroicon-o-share';
 
     protected static ?string $navigationGroup = 'Shared';
+    protected static bool $shouldRegisterNavigation = false;
+
 
     public static function form(Form $form): Form
     {
@@ -74,14 +76,14 @@ class BannerResource extends Resource
                 // Tables\Actions\DeleteBulkAction::make(),
             ]);
     }
-    
+
     public static function getRelations(): array
     {
         return [
             //
         ];
     }
-    
+
     public static function getPages(): array
     {
         return [

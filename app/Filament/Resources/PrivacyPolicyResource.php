@@ -36,6 +36,8 @@ class PrivacyPolicyResource extends Resource
     protected static ?string $navigationGroup = 'Privacies and Terms';
 
     protected static ?int $navigationSort = 1;
+    protected static bool $shouldRegisterNavigation = false;
+
 
     public static function form(Form $form): Form
     {
@@ -85,14 +87,14 @@ class PrivacyPolicyResource extends Resource
                 Tables\Actions\DeleteBulkAction::make(),
             ]);
     }
-    
+
     public static function getRelations(): array
     {
         return [
             //
         ];
     }
-    
+
     public static function getPages(): array
     {
         return [
@@ -100,5 +102,5 @@ class PrivacyPolicyResource extends Resource
             'create' => Pages\CreatePrivacyPolicy::route('/create'),
             'edit' => Pages\EditPrivacyPolicy::route('/{record}/edit'),
         ];
-    }    
+    }
 }

@@ -30,6 +30,8 @@ class SkillResource extends Resource
     protected static ?string $navigationGroup = 'Home Page';
 
     protected static ?int $navigationSort = 6;
+    protected static bool $shouldRegisterNavigation = false;
+
 
     public static function form(Form $form): Form
     {

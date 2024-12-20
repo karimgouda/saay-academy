@@ -30,6 +30,8 @@ class TermsConditionResource extends Resource
     protected static ?string $navigationGroup = 'Privacies and Terms';
 
     protected static ?int $navigationSort = 3;
+    protected static bool $shouldRegisterNavigation = false;
+
 
     public static function form(Form $form): Form
     {
@@ -66,14 +68,14 @@ class TermsConditionResource extends Resource
                 Tables\Actions\DeleteBulkAction::make(),
             ]);
     }
-    
+
     public static function getRelations(): array
     {
         return [
             //
         ];
     }
-    
+
     public static function getPages(): array
     {
         return [
@@ -81,5 +83,5 @@ class TermsConditionResource extends Resource
             'create' => Pages\CreateTermsCondition::route('/create'),
             'edit' => Pages\EditTermsCondition::route('/{record}/edit'),
         ];
-    }    
+    }
 }

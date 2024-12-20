@@ -29,6 +29,7 @@ class TermPointResource extends Resource
     protected static ?string $navigationGroup = 'Privacies and Terms';
 
     protected static ?int $navigationSort = 4;
+    protected static bool $shouldRegisterNavigation = false;
 
     public static function form(Form $form): Form
     {
@@ -67,14 +68,14 @@ class TermPointResource extends Resource
                 Tables\Actions\DeleteBulkAction::make(),
             ]);
     }
-    
+
     public static function getRelations(): array
     {
         return [
             //
         ];
     }
-    
+
     public static function getPages(): array
     {
         return [
@@ -82,5 +83,5 @@ class TermPointResource extends Resource
             'create' => Pages\CreateTermPoint::route('/create'),
             'edit' => Pages\EditTermPoint::route('/{record}/edit'),
         ];
-    }    
+    }
 }

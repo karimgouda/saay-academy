@@ -28,7 +28,7 @@ class AboutSliderResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-pencil-alt';
 
-    protected static ?string $navigationGroup = 'About Page';
+    protected static ?string $navigationGroup = 'Home Page';
 
     protected static ?string $navigationLabel = ' About Sliders';
 

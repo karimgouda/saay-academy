@@ -33,6 +33,8 @@ class AboutHistoryResource extends Resource
     protected static ?string $navigationLabel = 'History';
 
     protected static ?int $navigationSort = 4;
+    protected static bool $shouldRegisterNavigation = false;
+
 
     public static function form(Form $form): Form
     {

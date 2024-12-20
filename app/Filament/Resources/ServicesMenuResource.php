@@ -32,6 +32,8 @@ class ServicesMenuResource extends Resource
     protected static ?string $navigationGroup = 'Services Page';
 
     protected static ?int $navigationSort = 1;
+    protected static bool $shouldRegisterNavigation = false;
+
 
     public static function form(Form $form): Form
     {

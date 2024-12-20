@@ -29,6 +29,8 @@ class PromiseResource extends Resource
     protected static ?string $navigationGroup = 'Shared';
 
     protected static ?int $navigationSort = 3;
+    protected static bool $shouldRegisterNavigation = false;
+
 
     public static function form(Form $form): Form
     {
@@ -65,14 +67,14 @@ class PromiseResource extends Resource
                 Tables\Actions\DeleteBulkAction::make(),
             ]);
     }
-    
+
     public static function getRelations(): array
     {
         return [
             //
         ];
     }
-    
+
     public static function getPages(): array
     {
         return [

@@ -32,6 +32,7 @@ class AboutStatisticResource extends Resource
     protected static ?string $navigationGroup = 'About Page';
 
     protected static ?string $navigationLabel = 'Statistics';
+    protected static bool $shouldRegisterNavigation = false;
 
     protected static ?int $navigationSort = 3;
 

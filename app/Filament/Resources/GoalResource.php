@@ -33,6 +33,7 @@ class GoalResource extends Resource
     protected static ?string $navigationGroup = 'Home Page';
 
     protected static ?int $navigationSort = 3;
+    protected static bool $shouldRegisterNavigation = false;
 
     public static function form(Form $form): Form
     {

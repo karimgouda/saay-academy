@@ -21,12 +21,14 @@ use Filament\Resources\Concerns\Translatable;
 class CompanyResource extends Resource
 {
     use Translatable;
-    
+
     protected static ?string $model = Company::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-share';
 
     protected static ?string $navigationGroup = 'Shared';
+    protected static bool $shouldRegisterNavigation = false;
+
 
     protected static ?int $navigationSort = 2;
 
@@ -65,14 +67,14 @@ class CompanyResource extends Resource
                 Tables\Actions\DeleteBulkAction::make(),
             ]);
     }
-    
+
     public static function getRelations(): array
     {
         return [
             //
         ];
     }
-    
+
     public static function getPages(): array
     {
         return [

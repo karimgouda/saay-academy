@@ -25,10 +25,12 @@ class PartnerResource extends Resource
     protected static ?string $model = Partner::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-home';
-    
+
     protected static ?string $navigationGroup = 'Home Page';
 
     protected static ?int $navigationSort = 8;
+    protected static bool $shouldRegisterNavigation = false;
+
 
     public static function form(Form $form): Form
     {
@@ -65,14 +67,14 @@ class PartnerResource extends Resource
                 Tables\Actions\DeleteBulkAction::make(),
             ]);
     }
-    
+
     public static function getRelations(): array
     {
         return [
             //
         ];
     }
-    
+
     public static function getPages(): array
     {
         return [

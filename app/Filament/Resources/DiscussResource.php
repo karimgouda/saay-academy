@@ -32,6 +32,8 @@ class DiscussResource extends Resource
     protected static ?string $navigationGroup = 'Home Page';
 
     protected static ?int $navigationSort = 9;
+    protected static bool $shouldRegisterNavigation = false;
+
 
     public static function form(Form $form): Form
     {
