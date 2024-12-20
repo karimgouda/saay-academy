@@ -16,7 +16,7 @@ class ListWorkers extends ListRecords
     {
         return [
             Actions\LocaleSwitcher::make(),
-            Actions\CreateAction::make(),
+//            Actions\CreateAction::make(),
         ];
     }
 }

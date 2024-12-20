@@ -11,6 +11,7 @@ class ListHomeCategories extends ListRecords
     use ListRecords\Concerns\Translatable;
 
     protected static string $resource = HomeCategoryResource::class;
+    protected static ?string $title = 'Testimonials';
 
     protected function getActions(): array
     {

@@ -40,21 +40,9 @@ class WorkerResource extends Resource
                     TextInput::make('name')
                         ->required()
                         ->maxLength(255),
-                    TextInput::make('profession')
-                        ->required()
-                        ->maxLength(255),
                     Forms\Components\Textarea::make('description'),
                     FileUpload::make('image')
                         ->image(),
-                    TextInput::make('facebook')
-                        ->required()
-                        ->maxLength(255),
-                    TextInput::make('twitter')
-                        ->required()
-                        ->maxLength(255),
-                    TextInput::make('linkedin')
-                        ->required()
-                        ->maxLength(255),
                 ]),
             ]);
     }
@@ -65,12 +53,8 @@ class WorkerResource extends Resource
             ->columns([
                 TextColumn::make('id')->sortable()->searchable(),
                 TextColumn::make('name')->searchable(),
-                TextColumn::make('profession')->searchable(),
                 TextColumn::make('description')->limit(50)->searchable(),
                 ImageColumn::make('image'),
-                TextColumn::make('facebook')->searchable(),
-                TextColumn::make('twitter')->searchable(),
-                TextColumn::make('linkedin')->searchable(),
                 TextColumn::make('created_at')
                     ->dateTime(),
                 TextColumn::make('updated_at')
@@ -82,10 +66,10 @@ class WorkerResource extends Resource
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
-                Tables\Actions\DeleteAction::make(),
+//                Tables\Actions\DeleteAction::make(),
             ])
             ->bulkActions([
-                Tables\Actions\DeleteBulkAction::make(),
+//                Tables\Actions\DeleteBulkAction::make(),
             ]);
     }
 

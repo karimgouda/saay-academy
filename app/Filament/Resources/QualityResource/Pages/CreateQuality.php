@@ -18,6 +18,7 @@ class CreateQuality extends CreateRecord
             Actions\LocaleSwitcher::make(),
         ];
     }
+    protected static ?string $title = 'Packages';
 
     protected function getRedirectUrl(): string
     {

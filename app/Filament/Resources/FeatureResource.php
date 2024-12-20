@@ -32,6 +32,8 @@ class FeatureResource extends Resource
 
     protected static ?int $navigationSort = 1;
 
+    protected static ?string $navigationLabel = 'Hero Section';
+
     public static function form(Form $form): Form
     {
         return $form

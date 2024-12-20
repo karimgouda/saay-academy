@@ -17,12 +17,12 @@
                     <!-- ***** Logo End ***** -->
                     <!-- ***** Menu Start ***** -->
                     <ul class="nav mt-0" style="margin-top: 0 !important;">
-                        <li><a href="#welcome" class="active">Home</a></li>
-                        <li><a href="#features">About</a></li>
-                        <li><a href="#testimonials">Testimonials</a></li>
-                        <li><a href="#pricing-plans">Pricing Tables</a></li>
-                        <li><a href="#blog">Blog Entries</a></li>
-                        <li><a href="#contact-us">Contact Us</a></li>
+                        <li><a href="#welcome" class="active">{{__('site.shared.Home')}}</a></li>
+                        <li><a href="#features">{{__('site.shared.About')}}</a></li>
+                        <li><a href="#testimonials">{{__('site.shared.Testimonials')}}</a></li>
+                        <li><a href="#pricing-plans">{{__('site.shared.Pricing Tables')}}</a></li>
+                        <li><a href="#blog">{{__('site.shared.Blog Entries')}}</a></li>
+                        <li><a href="#contact-us">{{__('site.shared.Contact Us')}}</a></li>
                         <li>
                             @php
                             $lang = app()->getLocale() === 'en' ? 'ar' : 'en';
@@ -53,10 +53,9 @@
         <div class="container">
             <div class="">
                 <div class="m-auto col-xl-6 text-center col-lg-8 col-md-12 col-sm-12">
-                    <h1>We provide the best <strong>strategy</strong><br>to grow up your <strong>business</strong></h1>
-                    <p>Softy Pinko is a professional Bootstrap 4.0 theme designed by Template Mo
-                        for your company at absolutely free of charge</p>
-                    <a href="#features" class="main-button-slider">Discover More</a>
+                    <h1>{{$features->title}}</h1>
+                    <p>{{$features->description}}</p>
+                    <a href="#features" class="main-button-slider">{{__('pages.Discover More')}}</a>
                 </div>
             </div>
         </div>
@@ -71,44 +70,20 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="row">
-                    <!-- ***** Features Small Item Start ***** -->
-                    <div class="col-lg-4 col-md-6 col-sm-6 col-12"
-                        data-scroll-reveal="enter bottom move 50px over 0.6s after 0.2s">
-                        <div class="features-small-item">
-                            <div class="icon">
-                                <i><img src="assets/images/featured-item-01.png" alt=""></i>
+                    @foreach($characteristics as $characteristic)
+                        <!-- ***** Features Small Item Start ***** -->
+                        <div class="col-lg-4 col-md-6 col-sm-6 col-12"
+                             data-scroll-reveal="enter bottom move 50px over 0.6s after 0.2s">
+                            <div class="features-small-item">
+                                <div class="icon">
+                                    <i><img src="{{public_storage($characteristic->icon)}}" width="60" alt=""></i>
+                                </div>
+                                <h5 class="features-title">{{$characteristic->title}}</h5>
+                                <p>{{$characteristic->description}}</p>
                             </div>
-                            <h5 class="features-title">Modern Strategy</h5>
-                            <p>Customize anything in this template to fit your website needs</p>
                         </div>
-                    </div>
-                    <!-- ***** Features Small Item End ***** -->
-
-                    <!-- ***** Features Small Item Start ***** -->
-                    <div class="col-lg-4 col-md-6 col-sm-6 col-12"
-                        data-scroll-reveal="enter bottom move 50px over 0.6s after 0.4s">
-                        <div class="features-small-item">
-                            <div class="icon">
-                                <i><img src="assets/images/featured-item-01.png" alt=""></i>
-                            </div>
-                            <h5 class="features-title">Best Relationship</h5>
-                            <p>Contact us immediately if you have a question in mind</p>
-                        </div>
-                    </div>
-                    <!-- ***** Features Small Item End ***** -->
-
-                    <!-- ***** Features Small Item Start ***** -->
-                    <div class="col-lg-4 col-md-6 col-sm-6 col-12"
-                        data-scroll-reveal="enter bottom move 50px over 0.6s after 0.6s">
-                        <div class="features-small-item">
-                            <div class="icon">
-                                <i><img src="assets/images/featured-item-01.png" alt=""></i>
-                            </div>
-                            <h5 class="features-title">Ultimate Marketing</h5>
-                            <p>You just need to tell your friends about our free templates</p>
-                        </div>
-                    </div>
-                    <!-- ***** Features Small Item End ***** -->
+                        <!-- ***** Features Small Item End ***** -->
+                    @endforeach
                 </div>
             </div>
         </div>
@@ -122,16 +97,15 @@
         <div class="row">
             <div class="col-lg-5 col-md-12 col-sm-12 align-self-center"
                 data-scroll-reveal="enter left move 30px over 0.6s after 0.4s">
-                <img src="assets/images/left-image.png" class="rounded img-fluid d-block mx-auto" alt="App">
+                <img src="{{public_storage($about[0]->image)}}" class="rounded img-fluid d-block mx-auto" alt="App">
             </div>
             <div class="col-lg-1"></div>
             <div class="col-lg-6 col-md-12 col-sm-12 align-self-center mobile-top-fix">
                 <div class="left-heading">
-                    <h2 class="section-title">Let’s discuss about you project</h2>
+                    <h2 class="section-title">{{$about[0]->title}}</h2>
                 </div>
                 <div class="left-text">
-                    <p>Nullam sit amet purus libero. Etiam ullamcorper nisl ut augue blandit, at finibus leo efficitur.
-                        Nam gravida purus non sapien auctor, ut aliquam magna ullamcorper.</p>
+                    <p>{{$about[0]->description}}</p>
                 </div>
             </div>
         </div>
@@ -150,18 +124,16 @@
         <div class="row">
             <div class="col-lg-6 col-md-12 col-sm-12 align-self-center mobile-bottom-fix">
                 <div class="left-heading">
-                    <h2 class="section-title">We can help you to grow your business</h2>
+                    <h2 class="section-title">{{$about[1]->title}}</h2>
                 </div>
                 <div class="left-text">
-                    <p>Aenean pretium, ipsum et porttitor auctor, metus ipsum iaculis nisi, a bibendum lectus libero
-                        vitae urna. Sed id leo eu dolor luctus congue sed eget ipsum. Nunc nec luctus libero. Etiam quis
-                        dolor elit.</p>
+                    <p>{{$about[1]->description}}</p>
                 </div>
             </div>
             <div class="col-lg-1"></div>
             <div class="col-lg-5 col-md-12 col-sm-12 align-self-center mobile-bottom-fix-big"
                 data-scroll-reveal="enter right move 30px over 0.6s after 0.4s">
-                <img src="assets/images/right-image.png" class="rounded img-fluid d-block mx-auto" alt="App">
+                <img src="{{public_storage($about[1]->image)}}" class="rounded img-fluid d-block mx-auto" alt="App">
             </div>
         </div>
     </div>
@@ -175,57 +147,22 @@
             <div class="row">
                 <div class="offset-lg-3 col-lg-6">
                     <div class="info">
-                        <h1>Work Process</h1>
-                        <p>Aenean nec tempor metus. Maecenas ligula dolor, commodo in imperdiet interdum, vehicula ut
-                            ex. Donec ante diam.</p>
+                        <h1>{{__('pages.Work Process')}}</h1>
                     </div>
                 </div>
             </div>
 
             <!-- ***** Mini Box Start ***** -->
             <div class="row">
-                <div class="col-lg-2 col-md-3 col-sm-6 col-6">
-                    <a href="#" class="mini-box">
-                        <i><img src="assets/images/work-process-item-01.png" alt=""></i>
-                        <strong>Get Ideas</strong>
-                        <span>Godard pabst prism fam cliche.</span>
-                    </a>
-                </div>
-                <div class="col-lg-2 col-md-3 col-sm-6 col-6">
-                    <a href="#" class="mini-box">
-                        <i><img src="assets/images/work-process-item-01.png" alt=""></i>
-                        <strong>Sketch Up</strong>
-                        <span>Godard pabst prism fam cliche.</span>
-                    </a>
-                </div>
-                <div class="col-lg-2 col-md-3 col-sm-6 col-6">
-                    <a href="#" class="mini-box">
-                        <i><img src="assets/images/work-process-item-01.png" alt=""></i>
-                        <strong>Discuss</strong>
-                        <span>Godard pabst prism fam cliche.</span>
-                    </a>
-                </div>
-                <div class="col-lg-2 col-md-3 col-sm-6 col-6">
-                    <a href="#" class="mini-box">
-                        <i><img src="assets/images/work-process-item-01.png" alt=""></i>
-                        <strong>Revise</strong>
-                        <span>Godard pabst prism fam cliche.</span>
-                    </a>
-                </div>
-                <div class="col-lg-2 col-md-3 col-sm-6 col-6">
-                    <a href="#" class="mini-box">
-                        <i><img src="assets/images/work-process-item-01.png" alt=""></i>
-                        <strong>Approve</strong>
-                        <span>Godard pabst prism fam cliche.</span>
-                    </a>
-                </div>
-                <div class="col-lg-2 col-md-3 col-sm-6 col-6">
-                    <a href="#" class="mini-box">
-                        <i><img src="assets/images/work-process-item-01.png" alt=""></i>
-                        <strong>Launch</strong>
-                        <span>Godard pabst prism fam cliche.</span>
-                    </a>
-                </div>
+                @foreach($workers as $worker)
+                    <div class="col-lg-2 col-md-3 col-sm-6 col-6">
+                        <a href="#" class="mini-box">
+                            <i><img src="{{public_storage($worker->image)}}" width="60" alt=""></i>
+                            <strong>{{$worker->name}}</strong>
+                            <span>{{$worker->description}}</span>
+                        </a>
+                    </div>
+                @endforeach
             </div>
             <!-- ***** Mini Box End ***** -->
         </div>
@@ -240,75 +177,35 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="center-heading">
-                    <h2 class="section-title">What do they say?</h2>
+                    <h2 class="section-title">{{__('pages.What do they say?')}}</h2>
                 </div>
             </div>
             <div class=" col-lg-6 m-auto">
                 <div class="center-text">
-                    <p>Donec tempus, sem non rutrum imperdiet, lectus orci fringilla nulla, at accumsan elit eros a
-                        turpis. Ut sagittis lectus libero.</p>
+                    <p>{{__('site.shared.Testimonials')}}</p>
                 </div>
             </div>
         </div>
         <!-- ***** Section Title End ***** -->
 
         <div class="row">
-            <!-- ***** Testimonials Item Start ***** -->
-            <div class="col-lg-4 col-md-6 col-sm-12">
-                <div class="team-item">
-                    <div class="team-content">
-                        <i><img src="assets/images/testimonial-icon.png" alt=""></i>
-                        <p>Proin a neque nisi. Nam ipsum nisi, venenatis ut nulla quis, egestas scelerisque orci.
-                            Maecenas a finibus odio.</p>
-                        <div class="user-image">
-                            <img src="http://placehold.it/60x60" alt="">
-                        </div>
-                        <div class="team-info">
-                            <h3 class="user-name">Catherine Soft</h3>
-                            <span>Managing Director</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- ***** Testimonials Item End ***** -->
+            @foreach($testimonials as $testimonial)
+                <!-- ***** Testimonials Item Start ***** -->
+                <div class="col-lg-4 col-md-6 col-sm-12">
+                    <div class="team-item">
+                        <div class="team-content">
+                            <i><img src="{{public_storage($testimonial->image)}}" width="100" height="100" alt=""></i>
+                            <p></p>
 
-            <!-- ***** Testimonials Item Start ***** -->
-            <div class="col-lg-4 col-md-6 col-sm-12">
-                <div class="team-item">
-                    <div class="team-content">
-                        <i><img src="assets/images/testimonial-icon.png" alt=""></i>
-                        <p>Integer molestie aliquam gravida. Nullam nec arcu finibus, imperdiet nulla vitae, placerat
-                            nibh. Cras maximus venenatis molestie.</p>
-                        <div class="user-image">
-                            <img src="http://placehold.it/60x60" alt="">
-                        </div>
-                        <div class="team-info">
-                            <h3 class="user-name">Kelvin Wood</h3>
-                            <span>Digital Marketer</span>
+                            <div class="team-info">
+                                <h3 class="user-name">{{$testimonial->title}}</h3>
+                                <span>{{$testimonial->video}}</span>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <!-- ***** Testimonials Item End ***** -->
-
-            <!-- ***** Testimonials Item Start ***** -->
-            <div class="col-lg-4 col-md-6 col-sm-12">
-                <div class="team-item">
-                    <div class="team-content">
-                        <i><img src="assets/images/testimonial-icon.png" alt=""></i>
-                        <p>Quisque diam odio, maximus ac consectetur eu, auctor non lorem. Cras quis est non ante
-                            ultrices molestie. Ut vehicula et diam at aliquam.</p>
-                        <div class="user-image">
-                            <img src="http://placehold.it/60x60" alt="">
-                        </div>
-                        <div class="team-info">
-                            <h3 class="user-name">David Martin</h3>
-                            <span>Website Manager</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- ***** Testimonials Item End ***** -->
+                <!-- ***** Testimonials Item End ***** -->
+            @endforeach
         </div>
     </div>
 </section>
@@ -321,141 +218,45 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="center-heading">
-                    <h2 class="section-title">Pricing Plans</h2>
-                </div>
-            </div>
-            <div class="m-auto col-lg-6">
-                <div class="center-text">
-                    <p>Donec vulputate urna sed rutrum venenatis. Cras consequat magna quis arcu elementum, quis congue
-                        risus volutpat.</p>
+                    <h2 class="section-title">{{__('pages.Pricing Plans')}}</h2>
                 </div>
             </div>
         </div>
         <!-- ***** Section Title End ***** -->
 
         <div class="row">
-            <!-- ***** Pricing Item Start ***** -->
-            <div class="col-lg-4 col-md-6 col-sm-12" data-scroll-reveal="enter bottom move 50px over 0.6s after 0.2s">
-                <div class="pricing-item">
-                    <div class="pricing-header">
-                        <h3 class="pricing-title">Starter</h3>
-                    </div>
-                    <div class="pricing-body">
-                        <div class="price-wrapper">
-                            <span class="currency">$</span>
-                            <span class="price">14.50</span>
-                            <span class="period">monthly</span>
-                        </div>
-                        <ul class="list">
-                            <li class="active">60 GB space</li>
-                            <li class="active">600 GB transfer</li>
-                            <li class="active">Pro Design Panel</li>
-                            <li>15-minute support</li>
-                            <li>Unlimited Emails</li>
-                            <li>24/7 Security</li>
-                        </ul>
-                    </div>
-                    <div class="pricing-footer">
-                        <a href="#" class="main-button">Purchase Now</a>
-                    </div>
-                </div>
-            </div>
-            <!-- ***** Pricing Item End ***** -->
 
-            <!-- ***** Pricing Item Start ***** -->
-            <div class="col-lg-4 col-md-6 col-sm-12" data-scroll-reveal="enter bottom move 50px over 0.6s after 0.4s">
-                <div class="pricing-item active">
-                    <div class="pricing-header">
-                        <h3 class="pricing-title">Premium</h3>
-                    </div>
-                    <div class="pricing-body">
-                        <div class="price-wrapper">
-                            <span class="currency">$</span>
-                            <span class="price">21.50</span>
-                            <span class="period">monthly</span>
+            @foreach($packages as $package)
+                <!-- ***** Pricing Item Start ***** -->
+                <div class="col-lg-4 col-md-6 col-sm-12" data-scroll-reveal="enter bottom move 50px over 0.6s after 0.2s">
+                    <div class="pricing-item">
+                        <div class="pricing-header">
+                            <h3 class="pricing-title">{{$package->title}}</h3>
                         </div>
-                        <ul class="list">
-                            <li class="active">120 GB space</li>
-                            <li class="active">1200 GB transfer</li>
-                            <li class="active">Pro Design Panel</li>
-                            <li class="active">15-minute support</li>
-                            <li>Unlimited Emails</li>
-                            <li>24/7 Security</li>
-                        </ul>
-                    </div>
-                    <div class="pricing-footer">
-                        <a href="#" class="main-button">Purchase Now</a>
+                        <div class="pricing-body">
+                            <div class="price-wrapper">
+                                <span class="currency">$</span>
+                                <span class="price">{{$package->price}}</span>
+                                <span class="period">{{$package->descripiton}}</span>
+                            </div>
+                            <ul class="list">
+                                @foreach($package->points as $point)
+                                    <li class="active">{{$point}}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                        <div class="pricing-footer">
+                            <a href="#" class="main-button">Purchase Now</a>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <!-- ***** Pricing Item End ***** -->
-
-            <!-- ***** Pricing Item Start ***** -->
-            <div class="col-lg-4 col-md-6 col-sm-12" data-scroll-reveal="enter bottom move 50px over 0.6s after 0.6s">
-                <div class="pricing-item">
-                    <div class="pricing-header">
-                        <h3 class="pricing-title">Advanced</h3>
-                    </div>
-                    <div class="pricing-body">
-                        <div class="price-wrapper">
-                            <span class="currency">$</span>
-                            <span class="price">42.00</span>
-                            <span class="period">monthly</span>
-                        </div>
-                        <ul class="list">
-                            <li class="active">250 GB space</li>
-                            <li class="active">5000 GB transfer</li>
-                            <li class="active">Pro Design Panel</li>
-                            <li class="active">15-minute support</li>
-                            <li class="active">Unlimited Emails</li>
-                            <li class="active">24/7 Security</li>
-                        </ul>
-                    </div>
-                    <div class="pricing-footer">
-                        <a href="#" class="main-button">Purchase Now</a>
-                    </div>
-                </div>
-            </div>
-            <!-- ***** Pricing Item End ***** -->
+                <!-- ***** Pricing Item End ***** -->
+            @endforeach
         </div>
     </div>
 </section>
 <!-- ***** Pricing Plans End ***** -->
 
-<!-- ***** Counter Parallax Start ***** -->
-<section class="counter">
-    <div class="content">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-3 col-md-6 col-sm-12">
-                    <div class="count-item decoration-bottom">
-                        <strong>126</strong>
-                        <span>Projects</span>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-12">
-                    <div class="count-item decoration-top">
-                        <strong>63</strong>
-                        <span>Happy Clients</span>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-12">
-                    <div class="count-item decoration-bottom">
-                        <strong>18</strong>
-                        <span>Awards Wins</span>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-12">
-                    <div class="count-item">
-                        <strong>27</strong>
-                        <span>Countries</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- ***** Counter Parallax End ***** -->
 
 <!-- ***** Blog Start ***** -->
 <section class="section" id="blog">
@@ -464,70 +265,32 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="center-heading">
-                    <h2 class="section-title">Blog Entries</h2>
-                </div>
-            </div>
-            <div class="m-auto col-lg-6">
-                <div class="center-text">
-                    <p>Integer molestie aliquam gravida. Nullam nec arcu finibus, imperdiet nulla vitae, placerat nibh.
-                        Cras maximus venenatis molestie.</p>
+                    <h2 class="section-title">{{__('pages.Blog Entries')}}</h2>
                 </div>
             </div>
         </div>
         <!-- ***** Section Title End ***** -->
 
         <div class="row">
-            <div class="col-lg-4 col-md-6 col-sm-12">
-                <div class="blog-post-thumb">
-                    <div class="img">
-                        <img src="assets/images/blog-item-01.png" alt="">
-                    </div>
-                    <div class="blog-content">
-                        <h3>
-                            <a href="#">Vivamus ac vehicula dui</a>
-                        </h3>
-                        <div class="text">
-                            Cras aliquet ligula dui, vitae fermentum velit tincidunt id. Praesent eu finibus nunc. Nulla
-                            in sagittis eros. Aliquam egestas augue.
+            @foreach($blogs as $blog)
+                <div class="col-lg-4 col-md-6 col-sm-12">
+                    <div class="blog-post-thumb">
+                        <div class="img">
+                            <img src="{{public_storage($blog->image)}}" alt="">
                         </div>
-                        <a href="#" class="main-button">Read More</a>
+                        <div class="blog-content">
+                            <h3>
+                                <a href="#">{{$blog->title}}</a>
+                            </h3>
+                            <div class="text">
+                                {{$blog->description}}
+                            </div>
+{{--                            <a href="#" class="main-button">Read More</a>--}}
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-lg-4 col-md-6 col-sm-12">
-                <div class="blog-post-thumb">
-                    <div class="img">
-                        <img src="assets/images/blog-item-02.png" alt="">
-                    </div>
-                    <div class="blog-content">
-                        <h3>
-                            <a href="#">Phasellus convallis augue</a>
-                        </h3>
-                        <div class="text">
-                            Aliquam commodo ornare nisl, et scelerisque nisl dignissim ac. Vestibulum finibus urna ut
-                            velit venenatis, vel ultrices sapien mattis.
-                        </div>
-                        <a href="#" class="main-button">Read More</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 col-sm-12">
-                <div class="blog-post-thumb">
-                    <div class="img">
-                        <img src="assets/images/blog-item-03.png" alt="">
-                    </div>
-                    <div class="blog-content">
-                        <h3>
-                            <a href="#">Nam gravida purus non</a>
-                        </h3>
-                        <div class="text">
-                            Maecenas eu erat vitae dui convallis consequat vel gravida nulla. Vestibulum finibus euismod
-                            odio, ut tempus enim varius eu.
-                        </div>
-                        <a href="#" class="main-button">Read More</a>
-                    </div>
-                </div>
-            </div>
+            @endforeach
+
         </div>
     </div>
 </section>
@@ -540,12 +303,13 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="center-heading">
-                    <h2 class="section-title">Talk To Us</h2>
+                    <h2 class="section-title">{{__('pages.Talk To Us')}}</h2>
                 </div>
             </div>
             <div class="m-auto col-lg-6">
                 <div class="center-text">
-                    <p>Maecenas pellentesque ante faucibus lectus vulputate sollicitudin. Cras feugiat hendrerit semper.
+                    <p>
+                       {{__('pages.Contact Us')}}
                     </p>
                 </div>
             </div>
@@ -555,49 +319,18 @@
         <div class="row">
             <!-- ***** Contact Text Start ***** -->
             <div class="col-lg-4 col-md-6 col-sm-12">
-                <h5 class="margin-bottom-30">Keep in touch</h5>
+                <h5 class="margin-bottom-30">{{__('pages.Keep in touch')}}</h5>
                 <div class="contact-text">
-                    <p>110-220 Quisque diam odio, maximus ac consectetur eu, 10260
-                        <br>auctor non lorem
+                    <p>
+                        {{settings('address_'.app()->getLocale())}}
                     </p>
-                    <p>You are NOT allowed to re-distribute Softy Pinko template on any template collection websites.
-                        Thank you.</p>
+                    <p>{{settings('site_description_'.app()->getLocale())}}</p>
                 </div>
             </div>
             <!-- ***** Contact Text End ***** -->
 
             <!-- ***** Contact Form Start ***** -->
-            <div class="col-lg-8 col-md-6 col-sm-12">
-                <div class="contact-form">
-                    <form id="contact" action="" method="get">
-                        <div class="row">
-                            <div class="col-lg-6 col-md-12 col-sm-12">
-                                <fieldset>
-                                    <input name="name" type="text" class="form-control" id="name"
-                                        placeholder="Full Name" required="">
-                                </fieldset>
-                            </div>
-                            <div class="col-lg-6 col-md-12 col-sm-12">
-                                <fieldset>
-                                    <input name="email" type="email" class="form-control" id="email"
-                                        placeholder="E-Mail Address" required="">
-                                </fieldset>
-                            </div>
-                            <div class="col-lg-12">
-                                <fieldset>
-                                    <textarea name="message" rows="6" class="form-control" id="message"
-                                        placeholder="Your Message" required=""></textarea>
-                                </fieldset>
-                            </div>
-                            <div class="col-lg-12">
-                                <fieldset>
-                                    <button type="submit" id="form-submit" class="main-button">Send Message</button>
-                                </fieldset>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
+           @livewire('contact')
             <!-- ***** Contact Form End ***** -->
         </div>
     </div>

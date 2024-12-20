@@ -32,6 +32,7 @@ class QualityResource extends Resource
     protected static ?string $navigationGroup = 'Home Page';
 
     protected static ?int $navigationSort = 4;
+    protected static ?string $navigationLabel = 'Packages';
 
     public static function form(Form $form): Form
     {
@@ -40,8 +41,13 @@ class QualityResource extends Resource
                 Card::make()->schema([
                     TextInput::make('title')
                         ->required()
-                        ->maxLength(255),
-                    Forms\Components\Textarea::make('description'),
+                        ->maxLength(255)->label('type'),
+                    TextInput::make('price')
+                        ->required()->label('price')
+                        ->numeric(),
+
+                    TextInput::make('description')->label('Duration')->required(),
+
                     TagsInput::make('points')
                         ->placeholder('New Point')
                         ->hint('Press tab or enter to add your filled point')
@@ -58,12 +64,12 @@ class QualityResource extends Resource
         return $table
             ->columns([
                 TextColumn::make('id')->sortable()->searchable(),
-                TextColumn::make('title')->limit(50)->searchable(),
-                TextColumn::make('description')->limit(50)->searchable(),
+                TextColumn::make('title')->limit(50)->searchable()->label('type'),
+                TextColumn::make('price')->label('price')->searchable(),
+                TextColumn::make('description')->limit(50)->searchable()->label('Duration'),
                 TextColumn::make('points')->limit(50)->searchable(),
+
                 ImageColumn::make('image'),
-                ImageColumn::make('image_2'),
-                ImageColumn::make('image_3'),
                 TextColumn::make('created_at')
                     ->dateTime(),
                 TextColumn::make('updated_at')

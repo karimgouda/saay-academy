@@ -19,7 +19,7 @@ if(!function_exists('settings')) {
 }
 
 if(!function_exists('public_storage')) {
-    function public_storage(string $path) : string
+    function public_storage(string $path = null) : string
     {
         return asset('storage/' . $path);
     }

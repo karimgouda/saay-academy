@@ -11,6 +11,8 @@ class EditFeature extends EditRecord
     use EditRecord\Concerns\Translatable;
 
     protected static string $resource = FeatureResource::class;
+    protected static ?string $title = 'Hero Section';
+
 
     protected function getRedirectUrl(): string
     {

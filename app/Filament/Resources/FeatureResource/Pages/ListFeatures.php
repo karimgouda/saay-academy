@@ -11,6 +11,7 @@ class ListFeatures extends ListRecords
     use ListRecords\Concerns\Translatable;
 
     protected static string $resource = FeatureResource::class;
+    protected static ?string $title = 'Hero Section';
 
     protected function getActions(): array
     {

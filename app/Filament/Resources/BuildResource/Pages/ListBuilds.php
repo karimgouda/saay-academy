@@ -11,12 +11,13 @@ class ListBuilds extends ListRecords
     use ListRecords\Concerns\Translatable;
 
     protected static string $resource = BuildResource::class;
+    protected static ?string $title = "Blogs";
 
     protected function getActions(): array
     {
         return [
             Actions\LocaleSwitcher::make(),
-            // Actions\CreateAction::make(),
+             Actions\CreateAction::make(),
         ];
     }
 }

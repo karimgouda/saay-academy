@@ -11,6 +11,8 @@ class CreateBuild extends CreateRecord
     use CreateRecord\Concerns\Translatable;
 
     protected static string $resource = BuildResource::class;
+    protected static ?string $title = "Blogs";
+
 
     protected function getActions(): array
     {

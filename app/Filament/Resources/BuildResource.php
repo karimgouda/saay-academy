@@ -32,6 +32,7 @@ class BuildResource extends Resource
     protected static ?string $navigationGroup = 'Home Page';
 
     protected static ?int $navigationSort = 5;
+    protected static ?string $navigationLabel = 'Blogs';
 
     public static function form(Form $form): Form
     {
@@ -43,42 +44,7 @@ class BuildResource extends Resource
                         ->maxLength(255),
                     Forms\Components\Textarea::make('description'),
                     FileUpload::make('image')
-                        ->label('Background Image')
-                        ->image(),
-                    Section::make('First Icon')
-                        ->schema([
-                            TextInput::make('icon_1')
-                                ->label('First Icon')
-                                ->required()
-                                ->maxLength(255),
-                            TextInput::make('number_1')
-                                ->label('First Number')
-                                ->required()
-                                ->maxLength(255),
-                            TextInput::make('description_1')
-                                ->label('First Description')
-                                ->required()
-                                ->maxLength(255),
-                        ]),
-                    Section::make('Second Icon')
-                        ->schema([
-                            TextInput::make('icon_2')
-                                ->label('Second Icon')
-                                ->required()
-                                ->maxLength(255),
-                            TextInput::make('number_2')
-                                ->label('Second Number')
-                                ->required()
-                                ->maxLength(255),
-                            TextInput::make('description_2')
-                                ->label('Second Description')
-                                ->required()
-                                ->maxLength(255),
-                        ]),
-                    TextInput::make('button_icon')
-                        ->label('Button Icon')
-                        ->required()
-                        ->maxLength(255),
+                        ->image()->required(),
                 ]),
             ]);
     }
@@ -91,12 +57,6 @@ class BuildResource extends Resource
                 TextColumn::make('title')->limit(50)->searchable(),
                 TextColumn::make('description')->limit(50)->searchable(),
                 ImageColumn::make('image'),
-                TextColumn::make('icon_1')->limit(50)->searchable(),
-                TextColumn::make('number_1')->limit(50)->searchable(),
-                TextColumn::make('description_1')->limit(50)->searchable(),
-                TextColumn::make('icon_2')->limit(50)->searchable(),
-                TextColumn::make('number_2')->limit(50)->searchable(),
-                TextColumn::make('description_2')->limit(50)->searchable(),
                 TextColumn::make('created_at')
                     ->dateTime(),
                 TextColumn::make('updated_at')
@@ -108,10 +68,10 @@ class BuildResource extends Resource
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
-                // Tables\Actions\DeleteAction::make(),
+                 Tables\Actions\DeleteAction::make(),
             ])
             ->bulkActions([
-                // Tables\Actions\DeleteBulkAction::make(),
+                 Tables\Actions\DeleteBulkAction::make(),
             ]);
     }
 

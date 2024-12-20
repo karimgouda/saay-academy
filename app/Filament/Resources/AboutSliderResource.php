@@ -30,7 +30,7 @@ class AboutSliderResource extends Resource
 
     protected static ?string $navigationGroup = 'About Page';
 
-    protected static ?string $navigationLabel = 'Sliders';
+    protected static ?string $navigationLabel = ' About Sliders';
 
     protected static ?int $navigationSort = 2;
 
@@ -40,9 +40,6 @@ class AboutSliderResource extends Resource
             ->schema([
                 Card::make()->schema([
                     TextInput::make('title')
-                        ->required()
-                        ->maxLength(255),
-                    TextInput::make('country')
                         ->required()
                         ->maxLength(255),
                     Forms\Components\Textarea::make('description'),
@@ -58,7 +55,6 @@ class AboutSliderResource extends Resource
             ->columns([
                 TextColumn::make('id')->sortable()->searchable(),
                 TextColumn::make('title')->limit(50)->searchable(),
-                TextColumn::make('country')->limit(50)->searchable(),
                 TextColumn::make('description')->limit(50)->searchable(),
                 ImageColumn::make('image'),
                 TextColumn::make('created_at')
@@ -72,20 +68,20 @@ class AboutSliderResource extends Resource
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
-                Tables\Actions\DeleteAction::make(),
+//                Tables\Actions\DeleteAction::make(),
             ])
             ->bulkActions([
-                Tables\Actions\DeleteBulkAction::make(),
+//                Tables\Actions\DeleteBulkAction::make(),
             ]);
     }
-    
+
     public static function getRelations(): array
     {
         return [
             //
         ];
     }
-    
+
     public static function getPages(): array
     {
         return [
@@ -93,5 +89,5 @@ class AboutSliderResource extends Resource
             'create' => Pages\CreateAboutSlider::route('/create'),
             'edit' => Pages\EditAboutSlider::route('/{record}/edit'),
         ];
-    }    
+    }
 }

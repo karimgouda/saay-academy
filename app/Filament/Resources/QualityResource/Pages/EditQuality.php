@@ -9,13 +9,14 @@ use Filament\Resources\Pages\EditRecord;
 class EditQuality extends EditRecord
 {
     use EditRecord\Concerns\Translatable;
-    
+
     protected static string $resource = QualityResource::class;
 
     protected function getRedirectUrl(): string
     {
         return $this->getResource()::getUrl('index');
     }
+    protected static ?string $title = 'Packages';
 
     protected function getActions(): array
     {

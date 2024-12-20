@@ -32,6 +32,7 @@ class HomeCategoryResource extends Resource
     protected static ?string $navigationGroup = 'Home Page';
 
     protected static ?int $navigationSort = 7;
+    protected static ?string $navigationLabel = 'Testimonials';
 
     public static function form(Form $form): Form
     {
@@ -41,21 +42,14 @@ class HomeCategoryResource extends Resource
                     TextInput::make('title')
                         ->required()
                         ->maxLength(255),
+                    TextInput::make('video')
+                        ->required()
+                        ->maxLength(255)->label('position'),
                     Forms\Components\Textarea::make('description'),
                     FileUpload::make('image')
                         ->label('Main Image')
                         ->image(),
-                    TextInput::make('video')
-                        ->required()
-                        ->maxLength(255),
-                    TagsInput::make('progresses_titles')
-                        ->placeholder('New Progress Title')
-                        ->hint('Press tab or enter to add your filled progress title')
-                        ->label('Progress Title'),
-                    TagsInput::make('progresses_percentages')
-                        ->placeholder('New Progress Percentage')
-                        ->hint('Press tab or enter to add your filled progress percentage')
-                        ->label('Progress Percentage'),
+
                 ]),
             ]);
     }
@@ -66,11 +60,9 @@ class HomeCategoryResource extends Resource
             ->columns([
                 TextColumn::make('id')->sortable()->searchable(),
                 TextColumn::make('title')->limit(50)->searchable(),
+                TextColumn::make('video')->limit(50)->searchable()->label('position'),
                 TextColumn::make('description')->limit(50)->searchable(),
-                TextColumn::make('progresses_titles')->limit(50)->searchable(),
-                TextColumn::make('progresses_percentages')->limit(50)->searchable(),
                 ImageColumn::make('image'),
-                TextColumn::make('video')->limit(50)->searchable(),
                 TextColumn::make('created_at')
                     ->dateTime(),
                 TextColumn::make('updated_at')

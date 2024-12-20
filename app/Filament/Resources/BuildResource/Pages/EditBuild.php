@@ -9,8 +9,10 @@ use Filament\Resources\Pages\EditRecord;
 class EditBuild extends EditRecord
 {
     use EditRecord\Concerns\Translatable;
-    
+
     protected static string $resource = BuildResource::class;
+    protected static ?string $title = "Blogs";
+
 
     protected function getRedirectUrl(): string
     {

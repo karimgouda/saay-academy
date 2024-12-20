@@ -37,7 +37,7 @@ class MainController extends Controller
     {
         SEOFrontRenderService::generalRender();
     }
-    
+
     /**
      * Home Page
      *
@@ -45,19 +45,14 @@ class MainController extends Controller
      */
     public function home()
     {
-        $banner             = Banner::where('page_type', 'home')->first();
-        $features           = Feature::limit(3)->get();
-        $characteristics    = Characteristic::limit(4)->get();
-        $goal               = Goal::first();
-        $quality            = Quality::first();
-        $build              = Build::first();
-        $skills             = Skill::limit(3)->get();
-        $homeCategories     = HomeCategory::limit(4)->get();
-        $partners           = Partner::get();
-        $discuss            = Discuss::first();
-        $workers            = Worker::get();
-
-        return view('web.frontend.pages.home', compact('banner', 'features', 'characteristics', 'goal', 'quality', 'build', 'skills', 'homeCategories', 'partners', 'discuss', 'workers'));
+        $features           = Feature::first();
+        $characteristics    = Characteristic::limit(3)->get();
+        $about  = AboutSlider::limit(2)->get();
+        $workers = Worker::limit(6)->get();
+        $testimonials = HomeCategory::limit(3)->get();
+        $packages = Quality::limit(3)->get();
+        $blogs = Build::limit(3)->get();
+        return view('web.frontend.pages.home', compact('features', 'characteristics','about','workers','testimonials','packages','blogs'));
     }
 
     /**

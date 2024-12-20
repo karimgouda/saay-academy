@@ -39,9 +39,7 @@ class CharacteristicResource extends Resource
                         ->required()
                         ->maxLength(255),
                     Forms\Components\Textarea::make('description'),
-                    TextInput::make('icon')
-                        ->required()
-                        ->maxLength(255),
+                    Forms\Components\FileUpload::make('icon')->required()->image()
                 ]),
             ]);
     }
@@ -53,7 +51,7 @@ class CharacteristicResource extends Resource
                 TextColumn::make('id')->sortable()->searchable(),
                 TextColumn::make('title')->limit(50)->searchable(),
                 TextColumn::make('description')->limit(50)->searchable(),
-                TextColumn::make('icon')->searchable(),
+                Tables\Columns\ImageColumn::make('icon')->searchable(),
                 TextColumn::make('created_at')
                     ->dateTime(),
                 TextColumn::make('updated_at')

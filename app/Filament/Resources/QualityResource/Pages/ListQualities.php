@@ -11,12 +11,13 @@ class ListQualities extends ListRecords
     use ListRecords\Concerns\Translatable;
 
     protected static string $resource = QualityResource::class;
-
+    protected static ?string $title = 'Packages';
     protected function getActions(): array
     {
         return [
+
             Actions\LocaleSwitcher::make(),
-            // Actions\CreateAction::make(),
+             Actions\CreateAction::make(),
         ];
     }
 }

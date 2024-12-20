@@ -9,8 +9,10 @@ use Filament\Resources\Pages\EditRecord;
 class EditHomeCategory extends EditRecord
 {
     use EditRecord\Concerns\Translatable;
-    
+
     protected static string $resource = HomeCategoryResource::class;
+    protected static ?string $title = 'Testimonials';
+
 
     protected function getRedirectUrl(): string
     {
