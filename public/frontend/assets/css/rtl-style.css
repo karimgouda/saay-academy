@@ -220,6 +220,7 @@ body {
     letter-spacing: 0.25px;
     margin-bottom: 30px;
     position: relative;
+    text-align: right;
 }
 
 .center-heading {
@@ -273,6 +274,7 @@ body {
 
 .left-text p {
     margin-bottom: 30px;
+    text-align: right;
 }
 
 .left-text p.dark {
@@ -739,7 +741,7 @@ welcome
     display: flex;
     align-items: center;
     justify-content: center;
-    background-image: url(../images/banner-bg.png);
+    background-image: url(../images/banner.jpeg);
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
@@ -962,9 +964,9 @@ parallax & home seperator
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
-    background-image: url(../images/work-process-bg.png);
+    background-image: url(../images/2.jpeg);
     z-index: 2;
-    top: -20%;
+    top: 10%;
     right: -20%;
 }
 
